@@ -47,11 +47,25 @@ int main() {
     cin.tie(NULL);
     factorial();
     inverses();
-    int m,n;
-    cin >> m >> n;
-    int total = m*n;
-    int ans = total/2;
-    cout << ans << endl;
+    
+    string s1, s2;
+    cin >> s1 >> s2;
+    for (int i = 0; i < s1.size(); i++) {
+        if (s1[i] >= 'a' && s1[i] <= 'z') {
+            s1[i] -= 32;
+        }
+        if (s2[i] >= 'a' && s2[i] <= 'z') {
+            s2[i] -= 32;
+        }
+    }
+
+    if (s1 > s2) {
+        cout << 1 << endl;
+    } else if (s1 < s2) {
+        cout << -1 << endl;
+    } else {
+        cout << 0 << endl;
+    }
     
     return 0;
 }

@@ -45,13 +45,38 @@ void solve(int t) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    factorial();
-    inverses();
-    int m,n;
-    cin >> m >> n;
-    int total = m*n;
-    int ans = total/2;
-    cout << ans << endl;
+    // factorial();
+    // inverses();
+    string s;
+    cin>>s;
+    vector<int> v(3,0);
+    int c=0;
+    for(int i=0;i<s.length();i++){
+        if(s[i]!='+'){
+            v[s[i]-'1']++;
+        }
+        else{
+          c++;
+        }
+    }
     
+    string ans="";
+  
+    for(int i=0;i<3;i++){
+      int val=v[i];
+      while(val>0){
+        ans+=to_string(i+1);
+        if(c>0){
+          ans+='+';
+          c--;
+        }
+        
+        
+        val--;
+       
+      }
+    }
+
+    cout<<ans<<endl;
     return 0;
 }
