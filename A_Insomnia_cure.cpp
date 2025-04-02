@@ -44,33 +44,18 @@ int main() {
     cin.tie(NULL);
     factorial();
     inverses();
-    int n;
-    cin>>n;
-    int arr[n];
-    int mini=INT_MAX;
-    int maxi=INT_MIN;
-    int min_index=0;
-    int max_index=0;
-    for(int i=0;i<n;i++){
-      cin>>arr[i];
-      if(arr[i]<=mini){
-        mini=arr[i];
-        min_index=i;
-      }
-      if(arr[i]>maxi){
-        maxi=arr[i];
-        max_index=i;
-      }
-
+    int k,l,m,n,d;
+    cin>>k>>l>>m>>n>>d;
+    int c=0;
+    if(k==1 || l==1 || m==1 || n==1){
+        cout<<d;
+        return 0;
     }
-    int moves = max_index + (n - 1 - min_index);
-    
-    if (max_index > min_index) {
-        moves--; // Reduce one move as one shift will overlap
+    for(int i=1;i<=d;i++){
+        if(i%k==0 || i%l==0 || i%m==0 || i%n==0){
+            c++;
+        }
     }
-
-    cout << moves << endl;
-    
-
+    cout<<c<<endl;
     return 0;
 }

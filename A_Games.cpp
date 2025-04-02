@@ -46,31 +46,19 @@ int main() {
     inverses();
     int n;
     cin>>n;
-    int arr[n];
-    int mini=INT_MAX;
-    int maxi=INT_MIN;
-    int min_index=0;
-    int max_index=0;
+    int a[n],h[n];
     for(int i=0;i<n;i++){
-      cin>>arr[i];
-      if(arr[i]<=mini){
-        mini=arr[i];
-        min_index=i;
-      }
-      if(arr[i]>maxi){
-        maxi=arr[i];
-        max_index=i;
-      }
-
+        cin>>a[i]>>h[i];
     }
-    int moves = max_index + (n - 1 - min_index);
-    
-    if (max_index > min_index) {
-        moves--; // Reduce one move as one shift will overlap
+    int c=0;
+    for(int i=0;i<n;i++){
+      for(int j=0;j<n;j++){
+        if(a[i]==h[j]){
+          c++;
+        }
+      }
     }
-
-    cout << moves << endl;
-    
+    cout<<c<<endl;
 
     return 0;
 }

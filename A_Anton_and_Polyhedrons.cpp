@@ -45,32 +45,28 @@ int main() {
     factorial();
     inverses();
     int n;
-    cin>>n;
-    int arr[n];
-    int mini=INT_MAX;
-    int maxi=INT_MIN;
-    int min_index=0;
-    int max_index=0;
+    cin >> n;
+    int sum=0;
     for(int i=0;i<n;i++){
-      cin>>arr[i];
-      if(arr[i]<=mini){
-        mini=arr[i];
-        min_index=i;
+      string s;
+      cin >> s;
+      if(s=="Tetrahedron"){
+        sum+=4;
       }
-      if(arr[i]>maxi){
-        maxi=arr[i];
-        max_index=i;
+      else if(s=="Cube"){
+        sum+=6;
       }
-
+      else if(s=="Octahedron"){
+        sum+=8;
+      }
+      else if(s=="Dodecahedron"){
+        sum+=12;
+      }
+      else if(s=="Icosahedron"){
+        sum+=20;
+      }
+      
     }
-    int moves = max_index + (n - 1 - min_index);
-    
-    if (max_index > min_index) {
-        moves--; // Reduce one move as one shift will overlap
-    }
-
-    cout << moves << endl;
-    
-
+    cout<<sum<<endl;
     return 0;
 }

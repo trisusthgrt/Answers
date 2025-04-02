@@ -44,33 +44,19 @@ int main() {
     cin.tie(NULL);
     factorial();
     inverses();
-    int n;
-    cin>>n;
-    int arr[n];
-    int mini=INT_MAX;
-    int maxi=INT_MIN;
-    int min_index=0;
-    int max_index=0;
-    for(int i=0;i<n;i++){
-      cin>>arr[i];
-      if(arr[i]<=mini){
-        mini=arr[i];
-        min_index=i;
-      }
-      if(arr[i]>maxi){
-        maxi=arr[i];
-        max_index=i;
-      }
+    string input;
+    getline(cin, input);  // Read the full line including { and }
 
-    }
-    int moves = max_index + (n - 1 - min_index);
-    
-    if (max_index > min_index) {
-        moves--; // Reduce one move as one shift will overlap
+    // Remove the curly braces
+    // input = input.substr(1, input.size() - 2);
+
+    set<char> values;
+    for (char ch : input) {
+        if (ch != ',' && ch != ' ' && ch!= '{' && ch !='}') {  // Ignore commas and spaces
+            values.insert(ch);
+        }
     }
 
-    cout << moves << endl;
-    
-
+    cout << values.size() << "\n";
     return 0;
 }
